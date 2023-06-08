@@ -1,5 +1,40 @@
+import java.util.Scanner;
+
 public class Main {
+//    Пример:
+//            >> Enter first text:
+//            << this is the
+//    first sentence. Isn't it? Yes ! !! This
+//            ,
+//    last bit :) is also a sentence, but
+//    without a terminator other than the end of the file
+//>> 	1. Avg. word length: 4
+//            2. Type-Token Ratio: 3.333
+//            3. Hapax Legomena Ratio: 0.538
+//            4. Avg. sentence length: 6.5
+//            >> Enter second text:
+//            << Hello! This is just a simple text. Carry on!
+//            >>	1. Avg. word length: 3.666
+//            2. Type-Token Ratio: 1
+//            3. Hapax Legomena Ratio: 1
+//            4. Avg. sentence length: 3
+//            >> Similarity: 3.666 + 76.989 + 23.1 + 1.4 = 105.155
+
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Methods methods = new Methods();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter text: ");
+        String text1 = "Hello! This is just a simple text. Carry on!";
+        String text2 = "this is the\n" +
+                "first sentence. Isn't it? Yes ! !! This \n" +
+                ",\n" +
+                "last bit :) is also a sentence, but \n" +
+                "without a terminator other than the end of the file\n";
+        methods.printResult(text1);
+
+
+
+
     }
 }
