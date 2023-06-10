@@ -1,7 +1,16 @@
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Array;
+import java.sql.Timestamp;
+import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Methods {
 
@@ -18,6 +27,28 @@ public class Methods {
 //    където F1T1 e feature 1 (средна дължина на думите) за текст 1, F1T2 е feature 1 за текст 2,
 //Similarity: 3.666 + 76.989 + 23.1 + 1.4 = 105.155
     public String smilarity(String text1, String text2){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Искате ли да промените тежестите? -  Да/Не: ");
+        String input = scanner.nextLine();
+
+        int weight_1 =0; int weight_2=0; int weight_3=0; double weight_4=0.0;
+        if (input.toLowerCase().equals("да")) {
+            System.out.print("Въведете стойност за тежест 1: ");
+            weight_1 = scanner.nextInt();
+            System.out.print("Въведете стойност за тежест 2: ");
+            weight_2 = scanner.nextInt();
+            System.out.print("Въведете стойност за тежест 3: ");
+            weight_3 = scanner.nextInt();
+            System.out.print("Въведете стойност за тежест 4: ");
+            weight_4 = scanner.nextDouble();
+        }else if (input.toLowerCase().equals("не")){
+             weight_1 = 11;
+             weight_2 = 33;
+             weight_3 = 50;
+             weight_4 = 0.4;
+        }
+
+
         double f1t1 = averageWordLenght(text1);
         double f1t2 = averageWordLenght(text2);
         double f2t1 = calculateTypeTokenRatio(text1);
@@ -26,19 +57,29 @@ public class Methods {
         double f3t2 = calculateHapaxLegomenaRatio(text2);
         double f4t1 = calculateAverageSentanceLenght(text1);
         double f4t2 = calculateAverageSentanceLenght(text2);
+//        int weight_1 = 11;
+//        int weight_2 = 33;
+//        int weight_3 = 50;
+//        double weight_4 = 0.4;
 
-        double calculate = Math.abs(f1t1-f1t2)*11+Math.abs(f2t1-f2t2)*33+
-                Math.abs(f3t1-f3t2)*50+Math.abs(f4t1-f4t2)*0.4;
+        DecimalFormat df = new DecimalFormat("#.###");
 
-        return "\nSimilarity: "+Math.abs(f1t1-f1t2)+" + "+Math.abs(f2t1-f2t2)+" + "+Math.abs(f3t1-f3t2)+" + "+Math.abs(f4t1-f4t2)+" = "+calculate;
+        double calculate = Math.abs(f1t1-f1t2)*weight_1+Math.abs(f2t1-f2t2)*weight_2+
+                Math.abs(f3t1-f3t2)*weight_3+Math.abs(f4t1-f4t2)*weight_4;
+
+        return "\nSimilarity: "+df.format(Math.abs(f1t1-f1t2)*weight_1)+" + "+
+                df.format(Math.abs(f2t1-f2t2)*weight_2)+" + "+df.format(Math.abs(f3t1-f3t2)*weight_3)+" + "+
+                df.format(Math.abs(f4t1-f4t2)*weight_4)+" = "+df.format(calculate);
     }
-    public double averageWordLenght(String str){
+    public Double averageWordLenght(String str){
 //    Средна дължина на думите - средният брой символи в дума, след strip-ване на пунктуацията.
         String removePunct = str.replaceAll("\\p{Punct}", "");
         String[] words = removePunct.split("\\s+");
 
         int wordsArrLenght = words.length;
         int totalChars = 0;
+
+        DecimalFormat df = new DecimalFormat("#.###");
 
         for (int i = 0; i < words.length; i++) {
             totalChars+=words[i].length();
@@ -55,7 +96,7 @@ public class Methods {
         ArrayList<String> unigueWords = new ArrayList<>();
 
         for (int i = 0; i < words.length ; i++) {
-            boolean check = unigueWords.contains(words[i]);
+            boolean check = unigueWords.contains(words[i].toLowerCase());
             if (!check) {
                 unigueWords.add(words[i]);
             }
@@ -91,19 +132,19 @@ public class Methods {
     public double calculateAverageSentanceLenght(String str){
 
         //    Среден брой думи в изречение - броят на всички думи, използвани в текста, разделен на броя на изреченията.
-
-        String removePunct = str.replaceAll("\\p{Punct}", "");
         String[] sentence = str.split("[.!?]+");
         int totalSentace=sentence.length;
-        int totalWords =0;
-
-        for (int i = 0; i < sentence.length; i++) {
-            String[] words = sentence[i].trim().split("\\s+");
-            totalWords += words.length;
-        }
+        String removePunct = str.replaceAll("\\p{Punct}", "");
+        String[] wordss = removePunct.split("\\s+");
 
 
-        return (double) totalWords/ totalSentace;
+//        int totalWords =0;
+//
+//        for (int i = 0; i < sentence.length; i++) {
+//            String[] words = sentence[i].trim().split("\\s+");
+//            totalWords += words.length;
+//        }
+        return (double) wordss.length/ totalSentace;
     }
 
     public void printResult(String str){
@@ -115,6 +156,31 @@ public class Methods {
         String typeTokenRatio = "2. Type-Token Ratio: "+ calculateTypeTokenRatio(str);
         String hapaxLegomenaRatio = "3. Hapax Legomena Ratio: "+calculateHapaxLegomenaRatio(str);
         String avrSentanceLenght = "4. Avg. sentence length: "+calculateAverageSentanceLenght(str);
+
+        String detectorFile = "detector_file.txt";
+        try{
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(detectorFile, true)));
+            LocalDateTime currentTime = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedTime = currentTime.format(formatter);
+
+            writer.newLine();
+            writer.write(formattedTime);
+            writer.newLine();
+           writer.write(str);
+           writer.newLine();
+            writer.write(avgWordLenght);
+            writer.newLine();
+            writer.write(typeTokenRatio);
+            writer.newLine();
+            writer.write(hapaxLegomenaRatio);
+            writer.newLine();
+            writer.write(avrSentanceLenght);
+            writer.close();
+            System.out.println("Файлът е успешно записан.");
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
 
         System.out.println();
         System.out.println(avgWordLenght);

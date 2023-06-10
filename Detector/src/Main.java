@@ -29,7 +29,7 @@ public class Main {
         System.out.print(text1);
         methods.printResult(text1);
         System.out.print("Enter text 2: ");
-        String text2 = "this this this is the\n" +
+        String text2 = "this is the\n" +
                 "first sentence. Isn't it? Yes ! !! This \n" +
                 ",\n" +
                 "last bit :) is also a sentence, but \n" +
@@ -37,10 +37,6 @@ public class Main {
         System.out.print(text2);
         methods.printResult(text2);
         System.out.println(methods.smilarity(text1, text2));
-
-
-
-
 
     }
 }
