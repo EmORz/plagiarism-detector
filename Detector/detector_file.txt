@@ -37,3 +37,22 @@ without a terminator other than the end of the file
 2. Type-Token Ratio: 0.7692307692307693
 3. Hapax Legomena Ratio: 0.5769230769230769
 4. Avg. sentence length: 5.2
+2023-06-11 15:46:34
+Hello! This is just a simple text. Carry on!
+
+1. Avg. word length: 3.6666666666666665
+2. Type-Token Ratio: 1.0
+3. Hapax Legomena Ratio: 1.0
+4. Avg. sentence length: 3.0
+2023-06-11 15:46:34
+this is the
+first sentence. Isn't it? Yes ! !! This 
+,
+last bit :) is also a sentence, but 
+without a terminator other than the end of the file
+
+
+1. Avg. word length: 3.923076923076923
+2. Type-Token Ratio: 0.7692307692307693
+3. Hapax Legomena Ratio: 0.5769230769230769
+4. Avg. sentence length: 5.2
