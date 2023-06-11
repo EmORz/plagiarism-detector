@@ -57,10 +57,6 @@ public class Methods {
         double f3t2 = calculateHapaxLegomenaRatio(text2);
         double f4t1 = calculateAverageSentanceLenght(text1);
         double f4t2 = calculateAverageSentanceLenght(text2);
-//        int weight_1 = 11;
-//        int weight_2 = 33;
-//        int weight_3 = 50;
-//        double weight_4 = 0.4;
 
         DecimalFormat df = new DecimalFormat("#.###");
 
@@ -137,13 +133,6 @@ public class Methods {
         String removePunct = str.replaceAll("\\p{Punct}", "");
         String[] wordss = removePunct.split("\\s+");
 
-
-//        int totalWords =0;
-//
-//        for (int i = 0; i < sentence.length; i++) {
-//            String[] words = sentence[i].trim().split("\\s+");
-//            totalWords += words.length;
-//        }
         return (double) wordss.length/ totalSentace;
     }
 
