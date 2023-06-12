@@ -1,16 +1,10 @@
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class Methods {
 
@@ -26,6 +20,24 @@ public class Methods {
 //    abs(F1T1-F1T2) * 11 + abs(F2T1-F2T2) * 33 + abs(F3T1-F3T2) * 50 + abs(F4T1-F4T2) * 0.4,
 //    където F1T1 e feature 1 (средна дължина на думите) за текст 1, F1T2 е feature 1 за текст 2,
 //Similarity: 3.666 + 76.989 + 23.1 + 1.4 = 105.155
+
+    public String readFromFile(String fileName){
+
+        StringBuilder stringBuilder = new StringBuilder();
+        try{
+            File file = new File(fileName);
+            Scanner sc = new Scanner(file, "utf-8");
+            while(sc.hasNextLine()) {
+                stringBuilder.append(sc.nextLine().toString().trim());
+            }
+            sc.close();
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex);
+        }
+
+        return stringBuilder.toString();
+    }
+
     public String smilarity(String text1, String text2){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Искате ли да промените тежестите? -  Да/Не: ");
@@ -71,16 +83,16 @@ public class Methods {
 //    Средна дължина на думите - средният брой символи в дума, след strip-ване на пунктуацията.
         String removePunct = str.replaceAll("\\p{Punct}", "");
         String[] words = removePunct.split("\\s+");
-
-        int wordsArrLenght = words.length;
-        int totalChars = 0;
+        ArrayList<String> newWords = new ArrayList<>();
 
         DecimalFormat df = new DecimalFormat("#.###");
 
         for (int i = 0; i < words.length; i++) {
-            totalChars+=words[i].length();
+            newWords.add(words[i].trim());
         }
-        Double result = (double)totalChars/wordsArrLenght;
+        int totalChars = (String.join("", newWords).length());
+
+        Double result = (double)totalChars/newWords.size();
         return result;
     }
 
@@ -89,15 +101,14 @@ public class Methods {
 //            Измерва колко повтаряща се е лексиката.
         String removePunct = str.replaceAll("\\p{Punct}", "");
         String[] words = removePunct.split("\\s+");
-        ArrayList<String> unigueWords = new ArrayList<>();
+
+        Set<String> uniq1 = new HashSet<>();
 
         for (int i = 0; i < words.length ; i++) {
-            boolean check = unigueWords.contains(words[i].toLowerCase());
-            if (!check) {
-                unigueWords.add(words[i]);
-            }
+            String temp = words[i].trim();
+            uniq1.add(temp);
         }
-        return (double)unigueWords.size()/words.length;
+        return (double)uniq1.size()/words.length;
     }
 
     public double calculateHapaxLegomenaRatio(String str){
@@ -109,7 +120,7 @@ public class Methods {
         int totalWords = words.length;
 
         for (int i = 0; i < words.length; i++) {
-            String temp = words[i].toLowerCase();
+            String temp = words[i].trim().toLowerCase();
             int count = wordCount.getOrDefault(temp,0);
             wordCount.put(temp, count+1);
         }
@@ -129,9 +140,20 @@ public class Methods {
 
         //    Среден брой думи в изречение - броят на всички думи, използвани в текста, разделен на броя на изреченията.
         String[] sentence = str.split("[.!?]+");
-        int totalSentace=sentence.length;
+        ArrayList<String> listSentance = new ArrayList<>();
+        for (String s: sentence
+             ) {
+            String trimmedSencen = s.trim();
+            if (!trimmedSencen.isEmpty()) {
+                listSentance.add(trimmedSencen);
+            }
+
+        }
+
+        int totalSentace=listSentance.size();
         String removePunct = str.replaceAll("\\p{Punct}", "");
         String[] wordss = removePunct.split("\\s+");
+
 
         return (double) wordss.length/ totalSentace;
     }
