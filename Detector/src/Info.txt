@@ -1,0 +1,4 @@
+ПРОЕКТИ
+1. ДЕТЕКТОР ЗА ПЛАГИАТСТВО - ОСНОВЕН https://github.com/EmORz/plagiarism-detector/tree/main
+2. МАТРИЦИ https://github.com/EmORz/java-matrix-operation/tree/main/Matrix_Operation
+3. ХОТЕЛ https://github.com/EmORz/Hotel-Java/tree/main
