@@ -527,3 +527,55 @@ without a terminator other than the end of the file
 2. Type-Token Ratio: 0.8076923076923077
 3. Hapax Legomena Ratio: 0.5769230769230769
 4. Avg. sentence length: 6.5
+2023-07-08 21:04:59
+Hello! This is just a simple text. Carry on!
+
+1. Avg. word length: 3.6666666666666665
+2. Type-Token Ratio: 1.0
+3. Hapax Legomena Ratio: 1.0
+4. Avg. sentence length: 3.0
+2023-07-08 21:04:59
+this is the
+first sentence. Isn't it? Yes ! !! This 
+,
+last bit :) is also a sentence, but 
+without a terminator other than the end of the file
+
+
+1. Avg. word length: 3.923076923076923
+2. Type-Token Ratio: 0.8076923076923077
+3. Hapax Legomena Ratio: 0.5769230769230769
+4. Avg. sentence length: 6.5
+2023-07-08 21:23:36
+Hello! This is just a simple text. Carry on!
+
+1. Avg. word length: 3.6666666666666665
+2. Type-Token Ratio: 1.0
+3. Hapax Legomena Ratio: 1.0
+4. Avg. sentence length: 3.0
+2023-07-08 21:23:36
+this is the
+first sentence. Isn't it? Yes ! !! This 
+,
+last bit :) is also a sentence, but 
+without a terminator other than the end of the file
+
+
+1. Avg. word length: 3.923076923076923
+2. Type-Token Ratio: 0.8076923076923077
+3. Hapax Legomena Ratio: 0.5769230769230769
+4. Avg. sentence length: 6.5
+2023-07-08 21:36:19
+Text1Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed nulla massa, commodo at venenatis quis, dignissim quis erat.Pellentesque at magna est.Praesent interdum fermentum finibus.Proin aliquam rhoncus dolor, at malesuada neque malesuada sed.Aliquam dui lectus, egestas quis purus quis, tristique accumsan felis.Duis interdum nisi eget ante pharetra iaculis.Duis consectetur, urna id ornare bibendum, enim enim tincidunt nisl, in feugiat nulla lacus id felis.Quisque convallis lacus luctus purus rutrum, vel commodo metus vulputate.Maecenas eget pellentesque erat.Proin in blandit lorem.Duis erat nulla, ornare ut velit sit amet, fermentum mattis erat.Duis id nulla feugiat, sodales magna nec, aliquam nulla.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.Suspendisse potenti.Vivamus luctus, lacus id euismod blandit, odio nisl cursus metus, in luctus justo magna sit amet ante.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Suspendisse potenti.Vestibulum laoreet consectetur erat rutrum interdum.Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+1. Avg. word length: 6.486486486486487
+2. Type-Token Ratio: 0.6013513513513513
+3. Hapax Legomena Ratio: 0.33783783783783783
+4. Avg. sentence length: 7.4
+2023-07-08 21:36:19
+Text2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pharetra libero dui, sed volutpat turpis laoreet nec. Fusce quis lacus eget dui venenatis lobortis. Fusce bibendum tellus euismod erat tristique, ac laoreet odio interdum. Aliquam vehicula sagittis felis, pellentesque viverra risus commodo sed. Morbi mattis commodo ullamcorper. Nam lobortis quis dui et venenatis. Pellentesque fringilla lacus dolor, vitae laoreet neque venenatis id.
+
+1. Avg. word length: 6.096774193548387
+2. Type-Token Ratio: 0.7903225806451613
+3. Hapax Legomena Ratio: 0.5967741935483871
+4. Avg. sentence length: 7.75

@@ -1,6 +1,4 @@
 import java.io.*;
-import java.lang.reflect.Array;
-import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -60,7 +58,6 @@ public class Methods {
              weight_4 = 0.4;
         }
 
-
         double f1t1 = averageWordLenght(text1);
         double f1t2 = averageWordLenght(text2);
         double f2t1 = calculateTypeTokenRatio(text1);
@@ -85,7 +82,6 @@ public class Methods {
         String[] words = removePunct.split("\\s+");
         ArrayList<String> newWords = new ArrayList<>();
 
-        DecimalFormat df = new DecimalFormat("#.###");
 
         for (int i = 0; i < words.length; i++) {
             newWords.add(words[i].trim());
@@ -137,7 +133,6 @@ public class Methods {
         return result;
     }
     public double calculateAverageSentanceLenght(String str){
-
         //    Среден брой думи в изречение - броят на всички думи, използвани в текста, разделен на броя на изреченията.
         String[] sentence = str.split("[.!?]+");
         ArrayList<String> listSentance = new ArrayList<>();
@@ -153,7 +148,6 @@ public class Methods {
         int totalSentace=listSentance.size();
         String removePunct = str.replaceAll("\\p{Punct}", "");
         String[] wordss = removePunct.split("\\s+");
-
 
         return (double) wordss.length/ totalSentace;
     }
@@ -188,7 +182,7 @@ public class Methods {
             writer.newLine();
             writer.write(avrSentanceLenght);
             writer.close();
-            System.out.println("Файлът е успешно записан.");
+            System.out.println("\nФайлът е успешно записан.");
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
