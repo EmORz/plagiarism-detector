@@ -67,14 +67,18 @@ public class Methods {
         double f4t1 = calculateAverageSentanceLenght(text1);
         double f4t2 = calculateAverageSentanceLenght(text2);
 
+        double f1 = Math.abs(f1t1-f1t2)*weight_1;
+        double f2 = Math.abs(f2t1-f2t2)*weight_2;
+        double f3 = Math.abs(f3t1-f3t2)*weight_3;
+        double f4 = Math.abs(f4t1-f4t2)*weight_4;
+
         DecimalFormat df = new DecimalFormat("#.###");
 
-        double calculate = Math.abs(f1t1-f1t2)*weight_1+Math.abs(f2t1-f2t2)*weight_2+
-                Math.abs(f3t1-f3t2)*weight_3+Math.abs(f4t1-f4t2)*weight_4;
+        double calculate = f1+f2+f3+f4;
 
-        return "\nSimilarity: "+df.format(Math.abs(f1t1-f1t2)*weight_1)+" + "+
-                df.format(Math.abs(f2t1-f2t2)*weight_2)+" + "+df.format(Math.abs(f3t1-f3t2)*weight_3)+" + "+
-                df.format(Math.abs(f4t1-f4t2)*weight_4)+" = "+df.format(calculate);
+        return "\nSimilarity: "+
+                df.format(f1)+" + "+df.format(f2)+" + "+df.format(f3)+" + "+
+                df.format(f4)+" = "+df.format(calculate);
     }
     public Double averageWordLenght(String str){
 //    Средна дължина на думите - средният брой символи в дума, след strip-ване на пунктуацията.
@@ -162,6 +166,18 @@ public class Methods {
         String hapaxLegomenaRatio = "3. Hapax Legomena Ratio: "+calculateHapaxLegomenaRatio(str);
         String avrSentanceLenght = "4. Avg. sentence length: "+calculateAverageSentanceLenght(str);
 
+        saveToFile(str, avgWordLenght, typeTokenRatio, hapaxLegomenaRatio, avrSentanceLenght);
+
+        System.out.println();
+        System.out.println(avgWordLenght);
+        System.out.println(typeTokenRatio);
+        System.out.println(hapaxLegomenaRatio);
+        System.out.println(avrSentanceLenght);
+        System.out.println();
+
+    }
+
+    private static void saveToFile(String str, String avgWordLenght, String typeTokenRatio, String hapaxLegomenaRatio, String avrSentanceLenght) {
         String detectorFile = "detector_file.txt";
         try{
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(detectorFile, true)));
@@ -186,14 +202,6 @@ public class Methods {
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
-
-        System.out.println();
-        System.out.println(avgWordLenght);
-        System.out.println(typeTokenRatio);
-        System.out.println(hapaxLegomenaRatio);
-        System.out.println(avrSentanceLenght);
-        System.out.println();
-
     }
 
 }

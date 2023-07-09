@@ -579,3 +579,79 @@ Text2Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pharetra lib
 2. Type-Token Ratio: 0.7903225806451613
 3. Hapax Legomena Ratio: 0.5967741935483871
 4. Avg. sentence length: 7.75
+2023-07-09 13:04:17
+Hello! This is just a simple text. Carry on!
+
+1. Avg. word length: 3.6666666666666665
+2. Type-Token Ratio: 1.0
+3. Hapax Legomena Ratio: 1.0
+4. Avg. sentence length: 3.0
+2023-07-09 13:04:18
+this is the
+first sentence. Isn't it? Yes ! !! This 
+,
+last bit :) is also a sentence, but 
+without a terminator other than the end of the file
+
+
+1. Avg. word length: 3.923076923076923
+2. Type-Token Ratio: 0.8076923076923077
+3. Hapax Legomena Ratio: 0.5769230769230769
+4. Avg. sentence length: 6.5
+2023-07-09 13:20:22
+
+
+1. Avg. word length: 0.0
+2. Type-Token Ratio: 1.0
+3. Hapax Legomena Ratio: 1.0
+4. Avg. sentence length: Infinity
+2023-07-09 13:20:22
+this is the
+first sentence. Isn't it? Yes ! !! This 
+,
+last bit :) is also a sentence, but 
+without a terminator other than the end of the file
+
+
+1. Avg. word length: 3.923076923076923
+2. Type-Token Ratio: 0.8076923076923077
+3. Hapax Legomena Ratio: 0.5769230769230769
+4. Avg. sentence length: 6.5
+2023-07-09 17:48:07
+
+
+1. Avg. word length: 0.0
+2. Type-Token Ratio: 1.0
+3. Hapax Legomena Ratio: 1.0
+4. Avg. sentence length: Infinity
+2023-07-09 17:48:07
+this is the
+first sentence. Isn't it? Yes ! !! This 
+,
+last bit :) is also a sentence, but 
+without a terminator other than the end of the file
+
+
+1. Avg. word length: 3.923076923076923
+2. Type-Token Ratio: 0.8076923076923077
+3. Hapax Legomena Ratio: 0.5769230769230769
+4. Avg. sentence length: 6.5
+2023-07-09 17:56:41
+
+
+1. Avg. word length: 0.0
+2. Type-Token Ratio: 1.0
+3. Hapax Legomena Ratio: 1.0
+4. Avg. sentence length: Infinity
+2023-07-09 17:56:41
+this is the
+first sentence. Isn't it? Yes ! !! This 
+,
+last bit :) is also a sentence, but 
+without a terminator other than the end of the file
+
+
+1. Avg. word length: 3.923076923076923
+2. Type-Token Ratio: 0.8076923076923077
+3. Hapax Legomena Ratio: 0.5769230769230769
+4. Avg. sentence length: 6.5

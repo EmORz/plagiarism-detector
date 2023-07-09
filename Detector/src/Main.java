@@ -30,7 +30,7 @@ public class Main {
 
         if (choose.equals("1")) {
             System.out.print("Enter text 1: ");
-            String text1 = "Hello! This is just a simple text. Carry on!";
+            String text1 = "";
             System.out.print(text1);
             methods.printResult(text1);
             System.out.print("Enter text 2: ");
